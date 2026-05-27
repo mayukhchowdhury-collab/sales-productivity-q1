@@ -287,21 +287,73 @@
 <div class="tab-panel active" id="tab-overview">
   <section class="hero" style="border-bottom:none;">
     <div class="hero-inner">
-      <div class="eyebrow">Q1 2026 Fact Pack · v9</div>
+      <div class="eyebrow">Q1 2026 Fact Pack · v13</div>
       <h1>How sellers actually spend their time</h1>
-      <p class="lede">A distribution-led time study of 124 Sales-org reps from January through March 2026. Every term defined, every category explained, every common question pre-empted. Includes real-data quartile workflows of 4 representative sellers.</p>
+      <p class="lede">A whole-picture time study of 124 Moloco Ads sellers from January through March 2026. Real measurement (Calendar, Gong, Slack) stitched with inferred tool time (Workspace + Moloco internal tools) into a single accountable 40-hour week. Every term defined, every category explained, every common question pre-empted.</p>
 
-      <div class="tldr-cards">
-        <div class="tldr-card"><div class="stat-label">Typical calendar week</div><div class="stat-big">20<span>h booked</span></div><div class="stat-desc">Median calendar hours per week. Long right tail — most reps NOT calendar-packed.</div></div>
-        <div class="tldr-card green"><div class="stat-label">Customer-facing within calendar</div><div class="stat-big">6.3<span>h / week</span></div><div class="stat-desc">Composed of 10 sub-categories defined in the Categories tab.</div></div>
-        <div class="tldr-card violet"><div class="stat-label">Distinct customers met</div><div class="stat-big">10<span>per quarter</span></div><div class="stat-desc">Median brands met Q1. P25=6, P75=19 — wide spread.</div></div>
+      <div style="background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:24px 28px;margin-bottom:32px;">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;">
+          <div>
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--indigo);margin-bottom:4px;">The headline</div>
+            <h3 style="margin:0;font-family:'Fraunces',serif;font-size:24px;font-weight:600;color:var(--ink);">The median seller's 40-hour week</h3>
+          </div>
+          <div style="font-size:11.5px;color:var(--muted);">Hover any segment for hours</div>
+        </div>
+        <div id="overview-stitched-40h" style="background:transparent;border:none;padding:0;margin:0;"><!-- JS-rendered, single-bar median --></div>
       </div>
 
       <div class="hero-meta">
         <div class="hero-meta-item"><div class="label">Window</div><div class="value">Jan 1 — Mar 31 2026</div></div>
-        <div class="hero-meta-item"><div class="label">Cohort</div><div class="value">124 Sales-org reps</div></div>
+        <div class="hero-meta-item"><div class="label">Cohort</div><div class="value">124 Ads-Sales reps</div></div>
         <div class="hero-meta-item"><div class="label">Calendar events</div><div class="value">91,223</div></div>
         <div class="hero-meta-item"><div class="label">Slack messages</div><div class="value">27,535</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-bottom:none;padding-top:32px;">
+    <div class="section-head">
+      <div class="section-num">The questions this fact pack answers</div>
+      <h2>Six questions, six tabs, six headlines</h2>
+      <p class="section-sub">Each question maps to a tab. Click any card to jump there — or scroll for the deeper framing below.</p>
+    </div>
+    <div class="container">
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px;">
+        <a href="#week" class="overview-q-card" data-tab="week" style="text-decoration:none;color:inherit;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:24px;transition:border-color 0.15s;display:block;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--indigo);">Q1 · The week</div>
+          <div style="font-family:'Fraunces',serif;font-size:20px;font-weight:600;margin:6px 0 12px;color:var(--ink);line-height:1.3;">Where does a typical seller's 40 hours go?</div>
+          <div style="font-size:13px;color:var(--sub);line-height:1.55;">Median rep: <strong>6.3h customer-facing calendar</strong>, <strong>13.4h internal</strong>, <strong>0.4h Gong</strong>, <strong>~0.3h Slack</strong>, <strong>~8.3h inferred tools</strong>, residual deep work fills the rest. Above is the visual breakdown.</div>
+        </a>
+
+        <a href="#defs" class="overview-q-card" data-tab="defs" style="text-decoration:none;color:inherit;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:24px;transition:border-color 0.15s;display:block;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--indigo);">Q2 · Categories</div>
+          <div style="font-family:'Fraunces',serif;font-size:20px;font-weight:600;margin:6px 0 12px;color:var(--ink);line-height:1.3;">Within customer-facing time, what kind of meetings?</div>
+          <div style="font-size:13px;color:var(--sub);line-height:1.55;">Ten sub-categories. <strong>Recurring Sync / 1:1 dominates at 55%</strong> of customer-facing time. QBR + Demo + Strategy + Renewal combined &lt; 10%. Title regex shown for every classifier.</div>
+        </a>
+
+        <a href="#customers" class="overview-q-card" data-tab="customers" style="text-decoration:none;color:inherit;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:24px;transition:border-color 0.15s;display:block;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--indigo);">Q3 · Customers</div>
+          <div style="font-family:'Fraunces',serif;font-size:20px;font-weight:600;margin:6px 0 12px;color:var(--ink);line-height:1.3;">Where does customer time actually land?</div>
+          <div style="font-size:13px;color:var(--sub);line-height:1.55;"><strong>1,385 brands</strong> across 3,472 (rep × customer) pairs. Top 20 accounts absorb <strong>68%</strong> of top-25 customer hours. Google alone draws 319h from 78 reps.</div>
+        </a>
+
+        <a href="#cuts" class="overview-q-card" data-tab="cuts" style="text-decoration:none;color:inherit;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:24px;transition:border-color 0.15s;display:block;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--indigo);">Q4 · Cuts (filterable)</div>
+          <div style="font-family:'Fraunces',serif;font-size:20px;font-weight:600;margin:6px 0 12px;color:var(--ink);line-height:1.3;">How does the picture differ by role and region?</div>
+          <div style="font-size:13px;color:var(--sub);line-height:1.55;">Pick any role × region; the table and P25/P50/P75 bars recompute live. <strong>Customer-facing P25 = 4.8h, P75 = 8.2h</strong> — almost 3× spread within the same cohort.</div>
+        </a>
+
+        <a href="#quartiles" class="overview-q-card" data-tab="quartiles" style="text-decoration:none;color:inherit;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:24px;transition:border-color 0.15s;display:block;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--indigo);">Q5 · Quartile workflows</div>
+          <div style="font-family:'Fraunces',serif;font-size:20px;font-weight:600;margin:6px 0 12px;color:var(--ink);line-height:1.3;">How do top-quartile vs bottom-quartile reps differ in practice?</div>
+          <div style="font-size:13px;color:var(--sub);line-height:1.55;">Four real reps, one per quartile by customer-facing h/wk. Each card shows their actual Q1 meetings, Slack channels, customer accounts. Filterable by team and region — pick a subset, P1-P4 recompute within it.</div>
+        </a>
+
+        <a href="#tools" class="overview-q-card" data-tab="tools" style="text-decoration:none;color:inherit;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:24px;transition:border-color 0.15s;display:block;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--indigo);">Q6 · Internal tools</div>
+          <div style="font-family:'Fraunces',serif;font-size:20px;font-weight:600;margin:6px 0 12px;color:var(--ink);line-height:1.3;">How much time on Speedboat, Salesforce, Workspace?</div>
+          <div style="font-size:13px;color:var(--sub);line-height:1.55;"><strong>Estimated 8h/wk per rep</strong> across Gmail, Drive, Sheets, Slides, Speedboat, SF, BizDash. Workspace baseline (8.3h) + engagement-based Moloco apps. Slack proxy today; real telemetry pending IT access (see Limits tab).</div>
+        </a>
       </div>
     </div>
   </section>
@@ -1117,6 +1169,45 @@
     document.querySelectorAll('.qt-btn').forEach(b => b.classList.toggle('active', b.dataset.quartile === quartile));
   }
 
+  // ---- Single median 40h bar (Overview hero) ----
+  function renderOverview40h() {
+    const el = document.getElementById('overview-stitched-40h');
+    if (!el) return;
+    const sorted = [...REPS].sort((a, b) => a.m.cf - b.m.cf);
+    const rep = sorted[Math.floor(sorted.length * 0.5)];
+    if (!rep) return;
+    const r = rep.m;
+    const cf = r.cf || 0;
+    const internal = r.internal || 0;
+    const gong = (r.gong_min || 0) / 60;
+    const slack = (r.slack_msgs || 0) * 1.5 / 60;
+    const inferred = r.inferred_tools || 0;
+    const accounted = cf + internal + gong + slack + inferred;
+    const residual = Math.max(0, 40 - accounted);
+    const segs = [
+      {lbl:'Customer-facing calendar',  v:cf,       c:'green'},
+      {lbl:'Internal calendar',          v:internal, c:'indigo'},
+      {lbl:'Gong recorded calls',        v:gong,     c:'amber'},
+      {lbl:'Slack active',               v:slack,    c:'violet'},
+      {lbl:'Inferred tools (Workspace + Moloco apps)', v:inferred, c:'rose'},
+      {lbl:'Residual (deep work / breaks)', v:residual, c:'muted'},
+    ];
+    const segHtml = segs.filter(s => s.v > 0.04).map(s =>
+      `<div class="seg seg-${s.c}" style="width:${(s.v/40)*100}%" title="${s.lbl}: ${s.v.toFixed(1)}h"><span class="seg-tooltip">${s.lbl}: ${s.v.toFixed(1)}h</span></div>`
+    ).join('');
+    let html = `<div style="display:flex;height:56px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--paper);">${segHtml}</div>`;
+    html += `<div style="display:flex;flex-wrap:wrap;gap:18px;margin-top:14px;font-size:12px;">`;
+    for (const s of segs) {
+      html += `<div style="display:flex;align-items:center;gap:6px;"><span class="dot dot-${s.c}"></span><span style="color:var(--sub);">${s.lbl.split('(')[0].trim()}: <strong style="color:var(--ink);">${s.v.toFixed(1)}h</strong></span></div>`;
+    }
+    html += `</div>`;
+    html += `<div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--line-soft);font-size:11.5px;color:var(--muted);line-height:1.5;">
+      Real measurement: Calendar (customer-facing + internal), Gong, Slack-active. Inferred: Workspace baseline (8.3h: Gmail + Drive + Calendar mgmt) + Moloco-tool engagement-based hours. Residual = what's truly unaccounted — deep work, breaks, time off, customer DMs we can't see.
+      <br><strong>Median seller: ${rep.name} · ${rep.role} · ${rep.region}.</strong> See Quartile workflows tab for P1/P2/P3/P4 comparisons.
+    </div>`;
+    el.innerHTML = html;
+  }
+
   // ---- Stitched 40h bars (3 percentiles) ----
   function renderStitched40h(reps, containerId) {
     const el = document.getElementById(containerId);
@@ -1201,6 +1292,7 @@
   });
 
   // Initial render
+  renderOverview40h();
   renderStitched40h(REPS, 'week-stitched-40h');
   renderCuts();
   renderQuartile();
