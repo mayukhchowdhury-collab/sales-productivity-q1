@@ -276,7 +276,6 @@
       <button class="tab-btn" data-tab="cuts">Cuts</button>
       <button class="tab-btn" data-tab="quartiles">Quartile workflows</button>
       <button class="tab-btn" data-tab="tools">Internal tools</button>
-      <button class="tab-btn" data-tab="customers">Customers</button>
       <button class="tab-btn" data-tab="faq">FAQ</button>
       <button class="tab-btn" data-tab="limits">Limits</button>
     </div>
@@ -331,26 +330,20 @@
           <div style="font-size:13px;color:var(--sub);line-height:1.55;">Ten sub-categories. <strong>Recurring Sync / 1:1 dominates at 55%</strong> of customer-facing time. QBR + Demo + Strategy + Renewal combined &lt; 10%. Title regex shown for every classifier.</div>
         </a>
 
-        <a href="#customers" class="overview-q-card" data-tab="customers" style="text-decoration:none;color:inherit;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:24px;transition:border-color 0.15s;display:block;">
-          <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--indigo);">Q3 · Customers</div>
-          <div style="font-family:'Fraunces',serif;font-size:20px;font-weight:600;margin:6px 0 12px;color:var(--ink);line-height:1.3;">Where does customer time actually land?</div>
-          <div style="font-size:13px;color:var(--sub);line-height:1.55;"><strong>1,385 brands</strong> across 3,472 (rep × customer) pairs. Top 20 accounts absorb <strong>68%</strong> of top-25 customer hours. Google alone draws 319h from 78 reps.</div>
-        </a>
-
         <a href="#cuts" class="overview-q-card" data-tab="cuts" style="text-decoration:none;color:inherit;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:24px;transition:border-color 0.15s;display:block;">
-          <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--indigo);">Q4 · Cuts (filterable)</div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--indigo);">Q3 · Cuts (filterable)</div>
           <div style="font-family:'Fraunces',serif;font-size:20px;font-weight:600;margin:6px 0 12px;color:var(--ink);line-height:1.3;">How does the picture differ by role and region?</div>
           <div style="font-size:13px;color:var(--sub);line-height:1.55;">Pick any role × region; the table and P25/P50/P75 bars recompute live. <strong>Customer-facing P25 = 4.8h, P75 = 8.2h</strong> — almost 3× spread within the same cohort.</div>
         </a>
 
         <a href="#quartiles" class="overview-q-card" data-tab="quartiles" style="text-decoration:none;color:inherit;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:24px;transition:border-color 0.15s;display:block;">
-          <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--indigo);">Q5 · Quartile workflows</div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--indigo);">Q4 · Quartile workflows</div>
           <div style="font-family:'Fraunces',serif;font-size:20px;font-weight:600;margin:6px 0 12px;color:var(--ink);line-height:1.3;">How do top-quartile vs bottom-quartile reps differ in practice?</div>
           <div style="font-size:13px;color:var(--sub);line-height:1.55;">Four real reps, one per quartile by customer-facing h/wk. Each card shows their actual Q1 meetings, Slack channels, customer accounts. Filterable by team and region — pick a subset, P1-P4 recompute within it.</div>
         </a>
 
         <a href="#tools" class="overview-q-card" data-tab="tools" style="text-decoration:none;color:inherit;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:24px;transition:border-color 0.15s;display:block;">
-          <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--indigo);">Q6 · Internal tools</div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--indigo);">Q5 · Internal tools</div>
           <div style="font-family:'Fraunces',serif;font-size:20px;font-weight:600;margin:6px 0 12px;color:var(--ink);line-height:1.3;">How much time on Speedboat, Salesforce, Workspace?</div>
           <div style="font-size:13px;color:var(--sub);line-height:1.55;"><strong>Estimated 8h/wk per rep</strong> across Gmail, Drive, Sheets, Slides, Speedboat, SF, BizDash. Workspace baseline (8.3h) + engagement-based Moloco apps. Slack proxy today; real telemetry pending IT access (see Limits tab).</div>
         </a>
@@ -366,8 +359,8 @@
     <div class="narrative">
       <div class="core-q"><div class="q-label">Core question</div><div class="q-text">"In a typical week, where does a seller's time actually go — across meetings, calls, and digital channels?"</div><div class="a-text">Answered through three sub-questions, each addressed in a tab.</div></div>
       <div class="core-q"><div class="q-label">Sub-question 1 → The week tab</div><div class="q-text">How much time is on the calendar, and how much of that is customer-facing?</div><div class="a-text">Distribution stats per metric — N / mean / median / P25 / P75 / P90 / max + spread.</div></div>
-      <div class="core-q"><div class="q-label">Sub-question 2 → Categories tab</div><div class="q-text">Within customer-facing time, what's the mix? And digitally — where does Slack time land?</div><div class="a-text">10 meeting types + 10 Slack channel categories, each defined with real Q1 examples.</div></div>
-      <div class="core-q"><div class="q-label">Sub-question 3 → Customers + Cuts tabs</div><div class="q-text">Where does customer time land, and how does it vary by role and region?</div><div class="a-text">Top 25 accounts, then medians per cohort cell.</div></div>
+      <div class="core-q"><div class="q-label">Sub-question 2 → Definitions tab</div><div class="q-text">Within customer-facing time, what's the mix? And digitally — where does Slack time land?</div><div class="a-text">10 meeting types + 10 Slack channel categories, each defined with real Q1 examples.</div></div>
+      <div class="core-q"><div class="q-label">Sub-question 3 → Cuts + Quartile tabs</div><div class="q-text">How does it vary by role and region, and how do top-quartile vs bottom-quartile reps differ in practice?</div><div class="a-text">Filterable distribution per cohort cell; P1-P4 representative reps with real Q1 data.</div></div>
     </div>
   </section>
 </div>
@@ -521,22 +514,6 @@
 </div>
 
 
-<!-- CUSTOMERS -->
-<div class="tab-panel" id="tab-customers">
-  <section>
-    <div class="section-head">
-      <div class="section-num">Customers</div>
-      <h2>Where customer time lands</h2>
-      <p class="section-sub">Top 25 customer accounts by total Q1 calendar hours. Universe: 1,385 brands across 3,472 (rep × customer) pairs.</p>
-    </div>
-    <div class="container">
-      <table>
-        <thead><tr><th>#</th><th>Customer</th><th class="num">Q1 hours</th><th class="num">Reps engaged</th><th class="num">Hours / engaged rep</th><th>Distribution</th></tr></thead>
-        <tbody><tr><td class="rank">1</td><td class="cust-name">Google</td><td class="num">319</td><td class="num">78</td><td class="num">4.1h</td><td class="bar-cell"><div class="bar bar-indigo" style="width:100.0%"></div></td></tr><tr><td class="rank">2</td><td class="cust-name">Madhouse-Inc</td><td class="num">263</td><td class="num">22</td><td class="num">12.0h</td><td class="bar-cell"><div class="bar bar-indigo" style="width:82.5%"></div></td></tr><tr><td class="rank">3</td><td class="cust-name">Valiuz</td><td class="num">170</td><td class="num">10</td><td class="num">17.0h</td><td class="bar-cell"><div class="bar bar-indigo" style="width:53.2%"></div></td></tr><tr><td class="rank">4</td><td class="cust-name">Molocoads</td><td class="num">153</td><td class="num">64</td><td class="num">2.4h</td><td class="bar-cell"><div class="bar bar-indigo" style="width:48.1%"></div></td></tr><tr><td class="rank">5</td><td class="cust-name">Accenture</td><td class="num">147</td><td class="num">8</td><td class="num">18.4h</td><td class="bar-cell"><div class="bar bar-indigo" style="width:46.1%"></div></td></tr><tr><td class="rank">6</td><td class="cust-name">Ril</td><td class="num">136</td><td class="num">11</td><td class="num">12.3h</td><td class="bar-cell"><div class="bar bar-indigo" style="width:42.5%"></div></td></tr><tr><td class="rank">7</td><td class="cust-name">Manomano</td><td class="num">110</td><td class="num">11</td><td class="num">10.0h</td><td class="bar-cell"><div class="bar bar-indigo" style="width:34.6%"></div></td></tr><tr><td class="rank">8</td><td class="cust-name">Wayfair</td><td class="num">109</td><td class="num">15</td><td class="num">7.3h</td><td class="bar-cell"><div class="bar bar-indigo" style="width:34.1%"></div></td></tr><tr><td class="rank">9</td><td class="cust-name">Costco</td><td class="num">102</td><td class="num">9</td><td class="num">11.4h</td><td class="bar-cell"><div class="bar bar-indigo" style="width:32.1%"></div></td></tr><tr><td class="rank">10</td><td class="cust-name">Musinsa</td><td class="num">76</td><td class="num">7</td><td class="num">10.9h</td><td class="bar-cell"><div class="bar bar-indigo" style="width:23.9%"></div></td></tr><tr><td class="rank">11</td><td class="cust-name">Kalshi</td><td class="num">67</td><td class="num">15</td><td class="num">4.5h</td><td class="bar-cell"><div class="bar bar-indigo" style="width:20.9%"></div></td></tr><tr><td class="rank">12</td><td class="cust-name">Revolearn</td><td class="num">66</td><td class="num">11</td><td class="num">6.0h</td><td class="bar-cell"><div class="bar bar-indigo" style="width:20.5%"></div></td></tr><tr><td class="rank">13</td><td class="cust-name">Sciplay</td><td class="num">63</td><td class="num">6</td><td class="num">10.6h</td><td class="bar-cell"><div class="bar bar-indigo" style="width:19.9%"></div></td></tr><tr><td class="rank">14</td><td class="cust-name">Mistplay</td><td class="num">62</td><td class="num">9</td><td class="num">6.9h</td><td class="bar-cell"><div class="bar bar-indigo" style="width:19.5%"></div></td></tr><tr><td class="rank">15</td><td class="cust-name">Hotmail</td><td class="num">59</td><td class="num">2</td><td class="num">29.7h</td><td class="bar-cell"><div class="bar bar-indigo" style="width:18.6%"></div></td></tr><tr><td class="rank">16</td><td class="cust-name">Dutchie</td><td class="num">59</td><td class="num">6</td><td class="num">9.8h</td><td class="bar-cell"><div class="bar bar-indigo" style="width:18.4%"></div></td></tr><tr><td class="rank">17</td><td class="cust-name">Scopely</td><td class="num">55</td><td class="num">15</td><td class="num">3.7h</td><td class="bar-cell"><div class="bar bar-indigo" style="width:17.2%"></div></td></tr><tr><td class="rank">18</td><td class="cust-name">Cj</td><td class="num">55</td><td class="num">11</td><td class="num">5.0h</td><td class="bar-cell"><div class="bar bar-indigo" style="width:17.1%"></div></td></tr><tr><td class="rank">19</td><td class="cust-name">Askul</td><td class="num">54</td><td class="num">4</td><td class="num">13.6h</td><td class="bar-cell"><div class="bar bar-indigo" style="width:17.1%"></div></td></tr><tr><td class="rank">20</td><td class="cust-name">Xiaomi</td><td class="num">52</td><td class="num">11</td><td class="num">4.8h</td><td class="bar-cell"><div class="bar bar-indigo" style="width:16.5%"></div></td></tr><tr><td class="rank">21</td><td class="cust-name">Centurygame</td><td class="num">52</td><td class="num">4</td><td class="num">12.9h</td><td class="bar-cell"><div class="bar bar-indigo" style="width:16.1%"></div></td></tr><tr><td class="rank">22</td><td class="cust-name">Appsflyer</td><td class="num">50</td><td class="num">31</td><td class="num">1.6h</td><td class="bar-cell"><div class="bar bar-indigo" style="width:15.6%"></div></td></tr><tr><td class="rank">23</td><td class="cust-name">Mecanoconsulting</td><td class="num">49</td><td class="num">7</td><td class="num">7.0h</td><td class="bar-cell"><div class="bar bar-indigo" style="width:15.4%"></div></td></tr><tr><td class="rank">24</td><td class="cust-name">Playtika</td><td class="num">48</td><td class="num">8</td><td class="num">5.9h</td><td class="bar-cell"><div class="bar bar-indigo" style="width:14.9%"></div></td></tr><tr><td class="rank">25</td><td class="cust-name">King</td><td class="num">46</td><td class="num">11</td><td class="num">4.2h</td><td class="bar-cell"><div class="bar bar-indigo" style="width:14.5%"></div></td></tr></tbody>
-      </table>
-    </div>
-  </section>
-</div>
 
 <!-- CUTS (filterable) -->
 <div class="tab-panel" id="tab-cuts">
