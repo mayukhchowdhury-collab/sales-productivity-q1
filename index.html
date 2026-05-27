@@ -455,9 +455,9 @@
     </div>
 
     <div class="container" style="margin-bottom:48px;">
-      <h3 style="font-size:14px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin:0 0 16px;">Stitched 40-hour week — median rep, real + inferred</h3>
-
-      <div style="background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:24px;"><div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;"><span style="font-weight:600;font-size:14px;color:var(--ink);">Median rep — composition of a notional 40h week</span><span style="font-size:11px;color:var(--muted);">Hover any segment for detail</span></div><div style="display:flex;height:48px;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--paper);"><div class="seg seg-green" style="width:15.9%" title="Customer-facing calendar: 6.3h"><span class="seg-tooltip">Customer-facing calendar: 6.3h</span></div><div class="seg seg-indigo" style="width:33.5%" title="Internal calendar: 13.4h"><span class="seg-tooltip">Internal calendar: 13.4h</span></div><div class="seg seg-amber" style="width:1.0%" title="Gong calls: 0.4h"><span class="seg-tooltip">Gong calls: 0.4h</span></div><div class="seg seg-violet" style="width:0.7%" title="Slack active: 0.3h"><span class="seg-tooltip">Slack active: 0.3h</span></div><div class="seg seg-rose" style="width:20.8%" title="Inferred internal tools (est.): 8.3h"><span class="seg-tooltip">Inferred internal tools (est.): 8.3h</span></div><div class="seg seg-muted" style="width:28.2%" title="Residual (deep work / breaks): 11.3h"><span class="seg-tooltip">Residual (deep work / breaks): 11.3h</span></div></div><div style="display:flex;flex-wrap:wrap;gap:18px;margin-top:14px;font-size:11.5px;"><div style="display:flex;align-items:center;gap:6px;"><span class="dot dot-green"></span><span style="color:var(--sub);">Customer-facing: <strong style="color:var(--ink);">6.3h</strong></span></div><div style="display:flex;align-items:center;gap:6px;"><span class="dot dot-indigo"></span><span style="color:var(--sub);">Internal: <strong style="color:var(--ink);">13.4h</strong></span></div><div style="display:flex;align-items:center;gap:6px;"><span class="dot dot-amber"></span><span style="color:var(--sub);">Gong: <strong style="color:var(--ink);">0.4h</strong></span></div><div style="display:flex;align-items:center;gap:6px;"><span class="dot dot-violet"></span><span style="color:var(--sub);">Slack: <strong style="color:var(--ink);">0.3h</strong></span></div><div style="display:flex;align-items:center;gap:6px;"><span class="dot dot-rose"></span><span style="color:var(--sub);">Inferred tools: <strong style="color:var(--ink);">8.3h</strong></span></div><div style="display:flex;align-items:center;gap:6px;"><span class="dot dot-muted"></span><span style="color:var(--sub);">Residual: <strong style="color:var(--ink);">11.3h</strong></span></div></div><div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--line-soft);font-size:11.5px;color:var(--muted);">Important: medians of each component don't mathematically sum to 40h for the same rep (different reps cluster differently). This bar shows the <em>median value of each component</em> stacked end-to-end as a visual approximation. For exact per-rep totals see Quartile workflows tab.</div></div>
+      <h3 style="font-size:14px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;">Stitched 40-hour week — P25 / P50 / P75 comparison</h3>
+      <p style="color:var(--sub);margin:0 0 18px;font-size:13px;">Sample reps at the 25th, 50th, and 75th percentiles of customer-facing h/wk. Each bar = one real rep's 40-hour week, accounted via Calendar (customer-facing + internal) + Gong + Slack + Inferred tools + Residual. The shape change top-to-bottom shows how time allocation shifts as customer-facing hours grow.</p>
+      <div id="week-stitched-40h" style="background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:24px;"><!-- JS-rendered --></div>
     </div>
     <div class="container">
       <table>
@@ -520,6 +520,11 @@
         </div>
         <div class="filter-status" id="cuts-status"></div>
       </div>
+      <div style="margin:24px 0 8px;font-size:14px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);">Stitched 40-hour week (filtered) — P25 / P50 / P75</div>
+      <p style="color:var(--sub);margin:0 0 16px;font-size:13px;">Sample reps from this filtered subset at the 25th, 50th, and 75th percentiles by customer-facing h/wk.</p>
+      <div id="cuts-stitched-40h" style="background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:24px;margin-bottom:24px;"><!-- JS-rendered --></div>
+
+      <div style="margin:32px 0 8px;font-size:14px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);">Distribution table (filtered)</div>
       <table id="cuts-table">
         <thead><tr><th>Metric</th><th class="num">N</th><th class="num">Mean</th><th class="num">Median</th><th class="num">P25</th><th class="num">P75</th><th class="num">P90</th><th class="num">Max</th><th class="num">P75/P25</th></tr></thead>
         <tbody id="cuts-tbody"><!-- JS-rendered --></tbody>
@@ -983,6 +988,7 @@
       }
     }
     document.getElementById('cuts-tbody').innerHTML = html;
+    renderStitched40h(reps, 'cuts-stitched-40h');
   }
 
   // ---- Quartile tab: filtered P1-P4 persona cards ----
@@ -1111,6 +1117,70 @@
     document.querySelectorAll('.qt-btn').forEach(b => b.classList.toggle('active', b.dataset.quartile === quartile));
   }
 
+  // ---- Stitched 40h bars (3 percentiles) ----
+  function renderStitched40h(reps, containerId) {
+    const el = document.getElementById(containerId);
+    if (!el) return;
+    if (reps.length === 0) {
+      el.innerHTML = '<div style="padding:24px;text-align:center;color:var(--muted);">No reps in subset.</div>';
+      return;
+    }
+    const sorted = [...reps].sort((a, b) => a.m.cf - b.m.cf);
+    const n = sorted.length;
+    function repAt(p) {
+      const idx = Math.max(0, Math.min(n - 1, Math.floor(n * p)));
+      return sorted[idx];
+    }
+    const tiers = [
+      { label: 'P25', sub: 'bottom-quarter customer-facing', rep: repAt(0.25), color: 'rose' },
+      { label: 'P50', sub: 'median', rep: repAt(0.50), color: 'amber' },
+      { label: 'P75', sub: 'top-quarter customer-facing', rep: repAt(0.75), color: 'green' },
+    ];
+    let html = '';
+    for (const t of tiers) {
+      if (!t.rep) continue;
+      const r = t.rep.m;
+      const cf = r.cf || 0;
+      const internal = r.internal || 0;
+      const gong = (r.gong_min || 0) / 60;
+      const slack = (r.slack_msgs || 0) * 1.5 / 60;
+      const inferred = r.inferred_tools || 0;
+      const accounted = cf + internal + gong + slack + inferred;
+      const residual = Math.max(0, 40 - accounted);
+      const segs = [
+        {lbl:'Customer-facing', v:cf,       c:'green'},
+        {lbl:'Internal',         v:internal, c:'indigo'},
+        {lbl:'Gong',             v:gong,     c:'amber'},
+        {lbl:'Slack',            v:slack,    c:'violet'},
+        {lbl:'Inferred tools',   v:inferred, c:'rose'},
+        {lbl:'Residual',         v:residual, c:'muted'},
+      ];
+      const segHtml = segs.filter(s => s.v > 0.04).map(s =>
+        `<div class="seg seg-${s.c}" style="width:${(s.v/40)*100}%" title="${s.lbl}: ${s.v.toFixed(1)}h"><span class="seg-tooltip">${s.lbl}: ${s.v.toFixed(1)}h</span></div>`
+      ).join('');
+      html += `
+        <div style="margin-bottom:22px;">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;font-size:12.5px;margin-bottom:8px;">
+            <span><strong style="color:var(--${t.color});font-size:14px;">${t.label}</strong> · <span style="color:var(--ink);font-weight:600;">${t.rep.name}</span> <span style="color:var(--muted);">— ${t.sub}</span></span>
+            <span style="color:var(--muted);font-size:11.5px;">${t.rep.role} · ${t.rep.region} · cf ${cf.toFixed(1)}h/wk</span>
+          </div>
+          <div style="display:flex;height:36px;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--paper);">${segHtml}</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:5px;">
+            CF ${cf.toFixed(1)}h · Internal ${internal.toFixed(1)}h · Gong ${gong.toFixed(1)}h · Slack ${slack.toFixed(1)}h · Inferred ${inferred.toFixed(1)}h · Residual ${residual.toFixed(1)}h
+          </div>
+        </div>`;
+    }
+    html += `<div style="display:flex;flex-wrap:wrap;gap:16px;margin-top:8px;padding-top:14px;border-top:1px solid var(--line-soft);font-size:11px;">
+      <div style="display:flex;align-items:center;gap:6px;"><span class="dot dot-green"></span><span style="color:var(--sub);">Customer-facing</span></div>
+      <div style="display:flex;align-items:center;gap:6px;"><span class="dot dot-indigo"></span><span style="color:var(--sub);">Internal calendar</span></div>
+      <div style="display:flex;align-items:center;gap:6px;"><span class="dot dot-amber"></span><span style="color:var(--sub);">Gong</span></div>
+      <div style="display:flex;align-items:center;gap:6px;"><span class="dot dot-violet"></span><span style="color:var(--sub);">Slack-active</span></div>
+      <div style="display:flex;align-items:center;gap:6px;"><span class="dot dot-rose"></span><span style="color:var(--sub);">Inferred tools</span></div>
+      <div style="display:flex;align-items:center;gap:6px;"><span class="dot dot-muted"></span><span style="color:var(--sub);">Residual</span></div>
+    </div>`;
+    el.innerHTML = html;
+  }
+
   // Wire filter dropdowns
   document.getElementById('cuts-role').addEventListener('change', renderCuts);
   document.getElementById('cuts-region').addEventListener('change', renderCuts);
@@ -1131,6 +1201,7 @@
   });
 
   // Initial render
+  renderStitched40h(REPS, 'week-stitched-40h');
   renderCuts();
   renderQuartile();
 </script>
