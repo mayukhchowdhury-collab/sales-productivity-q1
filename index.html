@@ -397,7 +397,7 @@
       <div>
         <h3>Time metrics</h3>
         <div class="def-item"><div class="def-term">Calendar h/wk</div><div class="def-text">Sum of Google Calendar event durations in Q1 ÷ 12.86 working weeks.</div></div>
-        <div class="def-item"><div class="def-term">Customer-facing h/wk</div><div class="def-text">Subset of Calendar where the meeting title matches customer-facing patterns. 10 sub-categories — see table below.</div></div>
+        <div class="def-item"><div class="def-term">Customer-facing h/wk</div><div class="def-text">Subset of Calendar where the event has <strong>at least one external (non-<code>@moloco.com</code>) attendee</strong>. Internal-only meetings — manager 1:1s, team syncs, exec reviews without customer presence — are excluded at the pull stage. 10 sub-categories — see table below.</div></div>
         <div class="def-item"><div class="def-term">Internal h/wk</div><div class="def-text">Calendar minus customer-facing. Team syncs, exec reviews, 1:1s.</div></div>
         <div class="def-item"><div class="def-term">Residual h/wk</div><div class="def-text">40 − Calendar − Gong − Slack-active. Deep work, email, breaks, time off.</div></div>
         <div class="def-item"><div class="def-term">Gong min / wk</div><div class="def-text">Recorded conversation minutes ÷ 12.86. Reps who don't record = 0.</div></div>
@@ -428,6 +428,12 @@
       <h3 style="font-size:14px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">2 · Customer-facing meeting sub-categories</h3>
       <h2 style="margin-top:4px;">Where customer-facing time is broken down</h2>
       <p class="section-sub">Title-regex bucketing into 10 categories. Cohort total <strong>1781h</strong> across all 10 — see <a href="#week" style="color:var(--indigo);text-decoration:none;border-bottom:1px solid var(--indigo);">"The week" tab</a> for the distribution within each.</p>
+    </div>
+    <div class="container" style="margin-bottom:24px;">
+      <div class="callout green">
+        <strong>Footnote on customer-facing classification.</strong>
+        Every event counted as customer-facing has <strong>at least one external (non-<code style="background:var(--bg);padding:1px 6px;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:12px;">@moloco.com</code>) attendee</strong>, verified at the data-pull stage from Google Calendar's <code style="background:var(--bg);padding:1px 6px;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:12px;">attendees</code> field. Internal-only meetings — manager 1:1s, team syncs, prep blocks, exec reviews without customer presence — are excluded from this entire bucket. Q1 verification: <strong>124 reps · 16,026 customer-direct events · 100% with external attendees · 0 without.</strong> What this DOES guarantee: every minute below is real customer time by attendee. What it DOESN'T guarantee: meeting purpose / content (see Recurring Sync caveat in the classifier-logic expander below).
+      </div>
     </div>
     <div class="container">
       <table>
@@ -813,7 +819,7 @@
 <footer>
   <div class="container">
     <div class="meta">Sales Productivity Time Study · v9 · Q1 2026 · Confidential</div>
-    <div>Prepared by Mayukh Chowdhury · GTM Revenue &amp; Analytics · Generated 2026-05-27</div>
+    <div>Prepared by Mayukh Chowdhury · GTM Revenue &amp; Analytics · Generated 2026-06-01</div>
   </div>
 </footer>
 
